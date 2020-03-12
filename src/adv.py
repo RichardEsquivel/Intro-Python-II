@@ -77,27 +77,27 @@ North: n | South: s | East:  e | West:  w | Quit: q
 
 # logic to determine prompt that will occur when there are no items in the room or ther are items
 if len(player_1.current_room.items) <= 0:
-       print("There are no items in this room")
+    print("There are no items in this room")
 else:
-        print("Current Items in the room")
+    print("Current Items in the room")
 for item in player_1.current_room.items:
-        print(item)
-        user_input = input("Make your move:")
-        print("\n\n\"*10")
+    print(item)
+    user_input = input("Make your move:")
+    print("\n\n\"*10")
 
  # logic for game action
 if user_input in dir_map.keys():
     try:
 
         player_1.current_room = getattr(
-        player_1.current_room, dir_map[user_input])
-		    except AttributeError:
-                print("----------------------------------")
-                print("No room here!")
-                print("----------------------------------")
-                print("\n\n")
-        elif user_input == 'q':
-            break
+            player_1.current_room, dir_map[user_input])
+    except AttributeError:
+        print("----------------------------------")
+        print("No room here!")
+        print("----------------------------------")
+        print("\n\n")
+elif user_input == 'q':
+    break
 
 if __name__ == "__main__":
     main()
