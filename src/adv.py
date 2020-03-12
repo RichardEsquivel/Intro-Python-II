@@ -4,22 +4,17 @@ from player import Player
 # Declare all the rooms
 
 room = {
-    'outside':  Room("Outside Cave Entrance",
-                     "North of you, the cave mount beckons"),
+    'outside':  Room("Outside Cave Entrance:\n",
+                     """North of you, the cave mount beckons""", "\n\n"),
 
-    'foyer':    Room("Foyer", """Dim light filters in from the south. Dusty
-passages run north and east."""),
+    'foyer':    Room("Foyer:", """Dim light filters in from the south. Dusty passages run north and east.""", "\n"),
 
-    'overlook': Room("Grand Overlook", """A steep cliff appears before you, falling
-into the darkness. Ahead to the north, a light flickers in
-the distance, but there is no way across the chasm."""),
+    'overlook': Room("Grand Overlook:\n", """A steep cliff appears before you, falling into the darkness. Ahead to the north, a light flickers in the distance, but there is no way across the chasm.""", "\n"),
 
-    'narrow':   Room("Narrow Passage", """The narrow passage bends here from west
-to north. The smell of gold permeates the air."""),
+    'narrow':   Room("Narrow Passage;\n", """The narrow passage bends here from west to north. The smell of gold permeates the air.""", "\n"),
 
-    'treasure': Room("Treasure Chamber", """You've found the long-lost treasure
-chamber! Sadly, it has already been completely emptied by
-earlier adventurers. The only exit is to the south."""),
+    'treasure': Room("Treasure Chamber\n", """You've found the long-lost treasure chamber! Sadly, it has already been completely emptied by
+earlier adventurers. The only exit is to the south.""", "\n"),
 }
 
 
@@ -77,11 +72,11 @@ North: n | South: s | East:  e | West:  w | Quit: q
         if len(player_1.current_room.items) <= 0:
             print("No items in room!")
         else:
-            print("Oh look at that!")
-            for item in player_1.current_room.items:
-                print(item)
+            print("There may be an item here!")
+            for items in player_1.current_room.items:
+                print(items)
         user_input = input("Make your move: ")
-        print("\n\n"*10)
+        print("\n\n"*3)
 
         # Logic for user action and indicating where they are going
         if user_input in direction_map.keys():
@@ -95,7 +90,7 @@ North: n | South: s | East:  e | West:  w | Quit: q
                 print("-----------------------------------")
                 print("\n\n")
         elif user_input == 'q':
-            break
+            exit(0)
 
 
 if __name__ == "__main__":
